@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FLAT MANIFESTO. 极简躺平手册</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<meta name="theme-color" content="#E6DCC6">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:Cormorant,Georgia,"Songti SC","Noto Serif SC","STSong",serif;
+  background:#E6DCC6;color:#1A1712;line-height:2;letter-spacing:.02em;padding-bottom:90px;
+  background-image:repeating-linear-gradient(0deg,transparent 0 5px,rgba(120,104,74,.045) 5px 6px);
+}
+.mono{font-family:"Courier New",Courier,monospace;letter-spacing:.22em;text-transform:uppercase}
+.wrap{max-width:500px;margin:0 auto;padding:0 24px}
+/* ===== 封面区 ===== */
+.head{padding:64px 0 34px;text-align:center}
+.head .est{font-size:10px;color:#6B5F4A}
+.head h1{font-size:36px;font-weight:500;letter-spacing:.08em;margin:14px 0 4px;line-height:1.3}
+.head .fr{font-style:italic;font-size:15px;color:#4A4030;margin-top:2px}
+.head .zh{font-size:13px;color:#6B5F4A;margin-top:14px;letter-spacing:.3em}
+.rule{height:1px;background:rgba(26,23,18,.28);margin:26px 0}
+.rule.thin{margin:14px 0;background:rgba(26,23,18,.14)}
+/* 计数 */
+.count{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#6B5F4A;padding:0 2px 4px}
+/* ===== 条目 ===== */
+.item{
+  position:relative;display:flex;gap:16px;padding:22px 8px 20px 6px;cursor:pointer;
+  border-bottom:1px solid rgba(26,23,18,.16);transition:opacity .25s;
+}
+.item:active{background:rgba(255,252,244,.5)}
+.item .no{
+  font-family:"Courier New",Courier,monospace;font-size:11px;letter-spacing:.18em;
+  color:#8A7C60;padding-top:6px;white-space:nowrap;min-width:64px;
+}
+.item .dot{
+  position:absolute;right:4px;top:24px;width:13px;height:13px;border-radius:50%;
+  border:1.6px solid #1A1712;transition:all .3s;
+}
+.item.lit .dot{background:#1A1712;box-shadow:0 0 0 3px #E6DCC6,0 0 0 4.4px rgba(26,23,18,.35)}
+.item.lit .no{color:#1A1712}
+.item.lit .ttl{color:#6B5F4A}
+.item.lit .bd{color:#6B5F4A}
+.ttl{font-size:17.5px;font-weight:600;letter-spacing:.06em;line-height:1.5;transition:color .25s}
+.ttl .en{font-family:"Courier New",Courier,monospace;font-weight:400;font-size:9.5px;letter-spacing:.22em;color:#8A7C60;margin-left:9px;text-transform:uppercase}
+.bd{font-size:14.5px;color:#33302A;margin-top:6px;transition:color .25s}
+.bd b{font-weight:700}
+.bd .num{font-family:"Courier New",Courier,monospace;letter-spacing:.05em;font-weight:700}
+/* 成分表（香调戏仿） */
+.notes{margin:12px 0 4px;padding:13px 15px;border:1px solid rgba(26,23,18,.35);background:rgba(255,252,244,.55)}
+.notes .nrow{display:flex;align-items:baseline;gap:10px;font-size:13px;padding:3.5px 0}
+.notes .pct{font-family:"Courier New",Courier,monospace;font-size:13px;font-weight:700;letter-spacing:.06em;min-width:44px}
+.notes .tick{font-size:10px;color:#8A7C60;letter-spacing:.2em;font-family:"Courier New",Courier,monospace;text-transform:uppercase}
+.notes .what{color:#33302A;margin-left:auto;text-align:right;font-size:12px;color:#6B5F4A}
+/* ===== 金句 ===== */
+.quote{padding:44px 0 8px;text-align:center}
+.quote .mark{font-family:"Courier New",Courier,monospace;font-size:10px;letter-spacing:.3em;color:#8A7C60}
+.quote h2{font-size:23px;line-height:1.9;font-weight:500;margin:16px 0 6px;letter-spacing:.04em}
+.quote h2 .hl{border-bottom:2px solid rgba(26,23,18,.75);padding-bottom:1px}
+.quote .sub{font-style:italic;font-size:13px;color:#6B5F4A}
+/* ===== 躺平之王章 ===== */
+.seal-box{text-align:center;padding:34px 0 10px}
+.seal{
+  display:inline-block;width:172px;height:172px;border-radius:50%;
+  border:2px solid rgba(26,23,18,.85);position:relative;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  transform:rotate(-12deg) scale(.62);opacity:.28;transition:all .5s cubic-bezier(.2,1.6,.4,1);
+  background:rgba(255,252,244,.35);
+}
+.seal .in{font-family:"Courier New",Courier,monospace;font-size:9.5px;letter-spacing:.26em;color:#6B5F4A}
+.seal .mid{font-size:26px;font-weight:600;letter-spacing:.22em;margin:4px 0}
+.seal .fr{font-style:italic;font-size:11px;color:#4A4030}
+.seal.on{transform:rotate(-8deg) scale(1);opacity:1;border-color:#1A1712;
+  box-shadow:0 0 0 5px rgba(230,220,198,1),0 0 0 6px rgba(26,23,18,.5)}
+.seal-hint{font-size:10.5px;color:#8A7C60;margin-top:16px;letter-spacing:.14em}
+/* footer */
+.foot{margin-top:44px;text-align:center;font-size:10px;color:#8A7C60;line-height:2.2}
+.foot .fr{font-style:italic;letter-spacing:.06em}
+/* 点亮浮标 */
+.flash{
+  position:fixed;right:18px;bottom:24px;background:#1A1712;color:#E6DCC6;
+  font-family:"Courier New",Courier,monospace;font-size:10px;letter-spacing:.2em;
+  padding:9px 15px;opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;z-index:9;
+}
+.flash.on{opacity:1;transform:none}
+@media (max-width:420px){
+  .head h1{font-size:30px}
+  .quote h2{font-size:20px}
+  .seal{width:150px;height:150px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <div class="est mono">est. 2026 · a manifesto in 9 notes</div>
+    <h1>FLAT<br>MANIFESTO</h1>
+    <div class="fr">« désirer moins, vivre plus »</div>
+    <div class="zh">极简主义者的永久躺平手册</div>
+    <div class="rule"></div>
+    <div class="count mono"><span id="cLeft">notes — 9</span><span id="cLit">lit — 0 / 9</span></div>
+  </header>
+
+  <main id="list">
+    <section class="item" data-i="0">
+      <div class="no">N°01</div>
+      <div style="flex:1">
+        <div class="ttl">看透消费主义<span class="en">consume less</span><div class="dot"></div></div>
+        <div class="bd">趁年轻看透消费主义陷阱，不买潮牌，不换新款电子垃圾。把别人花在「升级」上的十年，迅速攒够 <span class="num">50–100万</span> 本金。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="1">
+      <div class="no">N°02</div>
+      <div style="flex:1">
+        <div class="ttl">把账户开好<span class="en">the account</span><div class="dot"></div></div>
+        <div class="bd">过港开好银行卡与美股账户。通道即自由：钱要能自己走到世界任何一个市场里去。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="2">
+      <div class="no">N°03</div>
+      <div style="flex:1">
+        <div class="ttl">只赚最硬核的钱<span class="en">the formula</span><div class="dot"></div></div>
+        <div class="bd">只赚人类科技进步最硬核的钱，配方如下——</div>
+        <div class="notes">
+          <div class="nrow"><span class="pct">50%</span><span class="tick">base</span><span class="what">VOO · 全人类的核心资产</span></div>
+          <div class="nrow"><span class="pct">30%</span><span class="tick">heart</span><span class="what">QQQM · 纳斯达克一百</span></div>
+          <div class="nrow"><span class="pct">20%</span><span class="tick">top</span><span class="what">VGT · 信息科技</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="item" data-i="3">
+      <div class="no">N°04</div>
+      <div style="flex:1">
+        <div class="ttl">扔掉 80%<span class="en">own less</span><div class="dot"></div></div>
+        <div class="bd">家里扔掉 <span class="num">80%</span> 用不上的杂物；衣柜里只留十几件舒服耐穿的纯棉衣服。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="4">
+      <div class="no">N°05</div>
+      <div style="flex:1">
+        <div class="ttl">住得安静<span class="en">live near</span><div class="dot"></div></div>
+        <div class="bd">住在离海或公园骑车 <span class="num">15</span> 分钟以内的安静小区，月租控制在 <span class="num">1200</span> 块以内。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="5">
+      <div class="no">N°06</div>
+      <div style="flex:1">
+        <div class="ttl">吃得极简极好<span class="en">eat well</span><div class="dot"></div></div>
+        <div class="bd">饮食极简但极高营养：牛肉、鸡蛋、深海鱼、西红柿、绿茶。戒掉一切奶茶和垃圾外卖。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="6">
+      <div class="no">N°07</div>
+      <div style="flex:1">
+        <div class="ttl">动得极简极高效<span class="en">move daily</span><div class="dot"></div></div>
+        <div class="bd">每天跑步或快走，每周三次户外骑行——一年到头，连感冒都很少得。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="7">
+      <div class="no">N°08</div>
+      <div style="flex:1">
+        <div class="ttl">精神极简极富足<span class="en">feed the mind</span><div class="dot"></div></div>
+        <div class="bd">卸载制造焦虑的短视频。看经典老电影，听无损音乐，带相机出门街拍。</div>
+      </div>
+    </section>
+
+    <section class="item" data-i="8">
+      <div class="no">N°09</div>
+      <div style="flex:1">
+        <div class="ttl">最后，是数学<span class="en">the math</span><div class="dot"></div></div>
+        <div class="bd">每年开销不到 <span class="num">5万</span>；而美股账户每年自动给你赚 <span class="num">10万</span> 以上。数字先于意志。</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="quote">
+    <div class="mark mono">— the last line —</div>
+    <h2>当你的欲望低于你的分红，<br>全世界都<span class="hl">无法再奴役你</span>。</h2>
+    <div class="sub">when desire runs below the dividend, no one owns you.</div>
+  </div>
+
+  <div class="seal-box">
+    <div class="seal" id="seal">
+      <div class="in">certified · est. 2026</div>
+      <div class="mid">躺平之王</div>
+      <div class="fr">roi de la sieste</div>
+    </div>
+    <div class="seal-hint mono" id="sealHint">collect all 9 notes to stamp the seal</div>
+  </div>
+
+  <footer class="foot">
+    <div class="fr">la simplicité est la liberté.</div>
+    <div>本页是生活方式笔记，不构成任何投资建议 · flat manifesto</div>
+  </footer>
+</div>
+
+<div class="flash" id="flash">NOTE LIT — <span id="flashN"></span></div>
+
+<script>
+(function(){
+var KEY="flatm9";
+var state=[];
+try{state=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){state=[]}
+if(!Array.isArray(state))state=[];
+var items=document.querySelectorAll(".item");
+var seal=document.getElementById("seal");
+var sealHint=document.getElementById("sealHint");
+function litCount(){return state.filter(function(v){return v}).length}
+function paint(){
+  items.forEach(function(it,i){it.classList.toggle("lit",!!state[i])});
+  var n=litCount();
+  document.getElementById("cLit").textContent="lit — "+n+" / 9";
+  document.getElementById("cLeft").textContent=(n===9?"all notes lit":"notes — "+(9-n));
+  var on=n===9;
+  seal.classList.toggle("on",on);
+  sealHint.textContent=on?"sealed. you are the king of lying flat.":"collect all 9 notes to stamp the seal";
+}
+function flash(n){
+  var f=document.getElementById("flash");
+  document.getElementById("flashN").textContent=n+" / 9";
+  f.classList.add("on");clearTimeout(f._t);
+  f._t=setTimeout(function(){f.classList.remove("on")},1400);
+}
+items.forEach(function(it,i){
+  it.addEventListener("click",function(){
+    state[i]=!state[i];
+    try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
+    paint();
+    if(state[i])flash(litCount());
+  });
+});
+paint();
+})();
+</script>
+</body>
+</html>
